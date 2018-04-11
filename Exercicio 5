@@ -72,21 +72,21 @@ bombaEntrada = 0;
 IF tanqueGeneralVacio()
   bombaEntrada = 0;
 ELSE
-  IF NOT tanqueLLeno(tanque1) AND tanqueActivo != tanque1
+  IF NOT tanqueLLeno(tanque1) AND valvulaSaidaTanque1 == 0
     bombaEntrada = 1;
     tanqueEnchendose = tanque1;
     valvulaEntradaTanque1 = 1;
     valvulaEntradaTanque1 = 0;
     
-  ELSE IF NOT tanqueLLeno(tanque2) AND tanqueActivo != tanque2
+  ELSE IF NOT tanqueLLeno(tanque2) AND valvulaSaidaTanque2 == 0
     bombaEntrada = 1;
     tanqueEnchendose = tanque2;
     valvulaEntradaTanque2 = 1;
-  ELSE IF NOT tanqueLLeno(tanque3) AND tanqueActivo != tanque3
+  ELSE IF NOT tanqueLLeno(tanque3) AND valvulaSaidaTanque3 == 0
     bombaEntrada = 1;
     tanqueEnchendose = tanque3;
     valvulaEntradaTanque3 = 1;
-  ELSE IF NOT tanqueLLeno(tanque4) AND tanqueActivo != tanque4 
+  ELSE IF NOT tanqueLLeno(tanque4) AND valvulaSaidaTanque4 == 0 
     bombaEntrada = 1;
     tanqueEnchendose = tanque4;
     valvulaEntradaTanque4 = 1;
@@ -104,19 +104,19 @@ valvulaSaidaTanque4 = 0;
 tanqueActivo = 0;
 bombaSaida = 0;
 
-IF NOT tanqueVacio(tanque4) AND tanqueEnchendose != tanque4
+IF NOT tanqueVacio(tanque4) AND valvulaEntradaTanque4 == 0
   valvulaSaidaTanque4 = 1;
   tanqueDescargandose = tanque4;
   bombaSaida = 1;
-ELSE IF NOT tanqueVacio(tanque3) AND tanqueEnchendose != tanque3
+ELSE IF NOT tanqueVacio(tanque3) AND valvulaEntradaTanque3 == 0
   valvulaSaidaTanque3 = 1;
   tanqueDescargandose = tanque3;
   bombaSaida = 1;
-ELSE IF NOT tanqueVacio(tanque2) AND tanqueEnchendose != tanque2
+ELSE IF NOT tanqueVacio(tanque2) AND valvulaEntradaTanque2 == 0
   valvulaSaidaTanque2 = 1;
   tanqueDescargandose = tanque2;
   bombaSaida = 1;
-ELSE IF NOT tanqueVacio(tanque1) AND tanqueEnchendose != tanque1
+ELSE IF NOT tanqueVacio(tanque1) AND valvulaEntradaTanque1 == 0
   valvulaSaidaTanque1 = 1;
   tanqueDescargandose = tanque1;
   bombaSaida = 1;
