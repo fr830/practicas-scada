@@ -1,0 +1,125 @@
+Elementos
+valvulaEntradaTanque1
+valvulaSaidaTanque1
+valvulaEntradaTanque2
+valvulaSaidaTanque2
+valvulaEntradaTanque3
+valvulaSaidaTanque3
+valvulaEntradaTanque4
+valvulaSaidaTanque4
+tanque1
+tanque2
+tanque3
+tanque4
+tanqueGeneral
+bombaEntrada
+bombaSaida
+
+----OBXETIVOS----
+  LENDA
+  + OBXETIVO CUMPRIDO
+  - OBXETIVO NON CUMPRIDO
+  ? DUDAS SOBRE O OBXETIVO
+
++ Os tanques solo poden ser cheos ou vaciados de un en un
++ Un tanque considerase vacio cando ten menos do 5% da sua capacidade
+  + A cantidade calculada e 600
++ Un tanque considerase cheo cando ten mais do 95% da sua capacidade
+  + A cantidade calculada e 10800
++ O tanque xeral considerase vacio cando ten menos do 10% da sua capacidade
+  + A cantidade calculada e 30000
++ O tanque xeral considerase cheo cando ten mais do 90% da sua capacidade
+  + A cantidade calculada e 270000
++ Denominase tanqueActivo a aquel que esta alimentando a saida nun momento dado
+  + Damoslle ese valor a un tanque en canto este comeza a descargar o seu contido
+? Cando o tanqueActivo chega ao estado de vacio debese cambiar automaticamente a un tanque cheo
+  - Non entendo se temos que cambiar a un completamente cheo ou pode darse o caso de cambiar a un parcialmente cheo
+- Por motivos de aforro e preciso que haxa 2 tanques disponhibles para bombear para realizar a carga dos tanques
++ Non se poden activar as bombas sen ter abertas antes as correspondentes valvulas
+
+tanqueVacio(tanque2) => tanque2 < 600
+
+tanqueVacio(tanque) {
+    return tanque < 600;
+  }
+}
+
+tanqueLLeno(tanque) {
+    return tanque > 10800
+}
+
+tanqueGeneralVacio() {
+  return tanqueGeneral < 30000
+}
+
+tanqueGeneralLleno() {
+    return tanqueGeneral > 270000
+}
+
+
+------- PROCESO DE CARGA ---------
+Esto garantiza que os depositos se enchan de un en un dende o 1 ata o 4 sempre que o tanque non se estea descargando e que o
+tanque xeral tenha a carga suficiente o tanque activo non podera ser cargado ao mesmo tempo que se esta a descargar
+
+
+valvulaEntradaTanque1 = 0;
+valvulaEntradaTanque2 = 0;
+valvulaEntradaTanque3 = 0;
+valvulaEntradaTanque4 = 0;
+tanqueEnchendose = 0;
+bombaEntrada = 0;
+
+IF tanqueGeneralVacio()
+  bombaEntrada = 0;
+ELSE
+  IF NOT tanqueLLeno(tanque1) AND tanqueActivo != tanque1
+    bombaEntrada = 1;
+    tanqueEnchendose = tanque1;
+    valvulaEntradaTanque1 = 1;
+    valvulaEntradaTanque1 = 0;
+    
+  ELSE IF NOT tanqueLLeno(tanque2) AND tanqueActivo != tanque2
+    bombaEntrada = 1;
+    tanqueEnchendose = tanque2;
+    valvulaEntradaTanque2 = 1;
+  ELSE IF NOT tanqueLLeno(tanque3) AND tanqueActivo != tanque3
+    bombaEntrada = 1;
+    tanqueEnchendose = tanque3;
+    valvulaEntradaTanque3 = 1;
+  ELSE IF NOT tanqueLLeno(tanque4) AND tanqueActivo != tanque4 
+    bombaEntrada = 1;
+    tanqueEnchendose = tanque4;
+    valvulaEntradaTanque4 = 1;
+  ELSE
+    bombaEntrada = 0
+    tanqueEnchendose = 0;
+    
+ -------- PROCESO DESCARGA --------
+Esto garantiza que os tanques sempre se vacien de un en un empezando dende o 4 ata chegar ao 1 ademais marca como activo o tanque que se esta descargando
+
+valvulaSaidaTanque1 = 0;
+valvulaSaidaTanque2 = 0;
+valvulaSaidaTanque3 = 0;
+valvulaSaidaTanque4 = 0;
+tanqueActivo = 0;
+bombaSaida = 0;
+
+IF NOT tanqueVacio(tanque4) AND tanqueEnchendose != tanque4
+  valvulaSaidaTanque4 = 1;
+  tanqueDescargandose = tanque4;
+  bombaSaida = 1;
+ELSE IF NOT tanqueVacio(tanque3) AND tanqueEnchendose != tanque3
+  valvulaSaidaTanque3 = 1;
+  tanqueDescargandose = tanque3;
+  bombaSaida = 1;
+ELSE IF NOT tanqueVacio(tanque2) AND tanqueEnchendose != tanque2
+  valvulaSaidaTanque2 = 1;
+  tanqueDescargandose = tanque2;
+  bombaSaida = 1;
+ELSE IF NOT tanqueVacio(tanque1) AND tanqueEnchendose != tanque1
+  valvulaSaidaTanque1 = 1;
+  tanqueDescargandose = tanque1;
+  bombaSaida = 1;
+ELSE 
+  tanqueDescargandose = 0;
+  bombaSaida = 0;
