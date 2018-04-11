@@ -39,7 +39,7 @@ bombaSaida
 
 tanqueVacio(tanque2) => tanque2 < 600
 
-tanqueVacio(tanque) {
+tanqueVacio(tanque) {s
     return tanque < 600;
   }
 }
