@@ -123,3 +123,17 @@ ELSE IF NOT tanqueVacio(tanque1) AND valvulaEntradaTanque1 == 0
 ELSE 
   tanqueDescargandose = 0;
   bombaSaida = 0;
+
+
+CODIGO valvulaEntradaTanque1
+IF valvulaSaidaTanque1 == 0 THEN
+  IF vaciados >= 2 THEN
+    IF tanqueGeneral < Lleno AND tanqueGeneral > vacio THEN
+      valvulaEntradaTanque1 = 1;
+    ELSE
+      valvulaEntradaTanque1 = 0;
+    ENDIF;
+  ENDIF;
+ELSE
+  valvulaEntradaTanque1 = 0
+ENDIF;
