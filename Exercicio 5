@@ -125,15 +125,32 @@ ELSE
   bombaSaida = 0;
 
 
-CODIGO valvulaEntradaTanque1
+// CODIGO valvulaEntradaTanque1
 IF valvulaSaidaTanque1 == 0 THEN
   IF vaciados >= 2 THEN
-    IF tanqueGeneral < Lleno AND tanqueGeneral > vacio THEN
-      valvulaEntradaTanque1 = 1;
-    ELSE
-      valvulaEntradaTanque1 = 0;
+    IF tanque1 < Lleno THEN
+      IF tanqueGeneral < Lleno AND tanqueGeneral > vacio THEN
+        valvulaEntradaTanque1 = 1;
+      ELSE
+        valvulaEntradaTanque1 = 0;
+      ENDIF;
     ENDIF;
   ENDIF;
 ELSE
   valvulaEntradaTanque1 = 0
 ENDIF;
+
+// codigo valvulaEntradaTanque2
+IF valvulaSaidaTanque2 == 0 THEN
+  IF vaciados >= 2 THEN
+    IF tanque2 < Lleno THEN
+      IF tanqueGeneral < Lleno AND tanqueGeneral > vacio THEN
+        valvulaEntradaTanque2 = 1;
+      ELSE
+        valvulaEntradaTanque2 = 0;
+      ENDIF;
+    ENDIF;
+  ENDIF;
+ENDIF;
+
+// CODIGO valvulaEntradaTanque3
