@@ -1,9 +1,5 @@
 
 # Exercicio 5 das practicas de scada
-  LENDA
-  + OBXETIVO CUMPRIDO
-  - OBXETIVO NON CUMPRIDO
-  ? DUDAS SOBRE O OBXETIVO
 
 ## Oxetivos do exercicio
 + Os tanques solo poden ser cheos ou vaciados de un en un
@@ -144,4 +140,57 @@ ELSE
 ENDIF;
 ```
 
+
+
 ## Valvula de entrada do tanque 3
+### Requisitos
+- A valvula de saida debe estar cerrada
+- Debe haber polo menos 2 tanques vacios para comezar a encher
+- O tanque 3 non pode estar cheo para comezar a encher
+- Cando o tanque xeral estea vacio a valvula debese cerrar
+- Cando a valvula de saida se abra a de entrada debese cerrar
+- Cando o tanque 3 chege a sua carga maxima a valvula de entrada debe cerrarse
+```
+IF valvulaSaidaTanque3 == 0 THEN
+  IF vaciados >= 3 THEN
+    IF tanque3 < Lleno THEN
+      IF tanqueGeneral < Lleno AND tanqueGeneral > vacio THEN
+        valvulaEntradaTanque3 = 1;
+      ELSE
+        valvulaEntradaTanque3 = 0;
+      ENDIF;
+    ELSE
+      valvulaEntradaTanque3 = 0;
+    ENDIF;
+  ENDIF;
+ELSE
+  valvulaEntradaTanque3 = 0;
+ENDIF;
+```
+
+
+## Valvula de entrada do tanque 4
+### Requisitos
+- A valvula de saida debe estar cerrada
+- Debe haber polo menos 2 tanques vacios para comezar a encher
+- O tanque 3 non pode estar cheo para comezar a encher
+- Cando o tanque xeral estea vacio a valvula debese cerrar
+- Cando a valvula de saida se abra a de entrada debese cerrar
+- Cando o tanque 3 chege a sua carga maxima a valvula de entrada debe cerrarse
+```
+IF valvulaSaidaTanque4 == 0 THEN
+  IF vaciados >= 4 THEN
+    IF tanque4 < Lleno THEN
+      IF tanqueGeneral < Lleno AND tanqueGeneral > vacio THEN
+        valvulaEntradaTanque4 = 1;
+      ELSE
+        valvulaEntradaTanque4 = 0;
+      ENDIF;
+    ELSE
+      valvulaEntradaTanque4 = 0;
+    ENDIF;
+  ENDIF;
+ELSE
+  valvulaEntradaTanque4 = 0;
+ENDIF;
+```
