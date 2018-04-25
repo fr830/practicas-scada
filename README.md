@@ -1,2 +1,2 @@
-# practicas-scada
-Practicas de Scada
+# Exercicios de scada
+Diversos exercicios de scada resoltos en formato marckdown
