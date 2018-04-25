@@ -1,8 +1,8 @@
-Elementos
+## Elementos
 valvulaEntradaTanque1
 valvulaSaidaTanque1
 valvulaEntradaTanque2
-valvulaSaidaTanque2
+valvulaSaidaTanque2 
 valvulaEntradaTanque3
 valvulaSaidaTanque3
 valvulaEntradaTanque4
@@ -15,12 +15,13 @@ tanqueGeneral
 bombaEntrada
 bombaSaida
 
-----OBXETIVOS----
+# OBXETIVOS
   LENDA
   + OBXETIVO CUMPRIDO
   - OBXETIVO NON CUMPRIDO
   ? DUDAS SOBRE O OBXETIVO
 
+## Oxetivos do exercicio
 + Os tanques solo poden ser cheos ou vaciados de un en un
 + Un tanque considerase vacio cando ten menos do 5% da sua capacidade
   + A cantidade calculada e 600
@@ -37,31 +38,11 @@ bombaSaida
 - Por motivos de aforro e preciso que haxa 2 tanques disponhibles para bombear para realizar a carga dos tanques
 + Non se poden activar as bombas sen ter abertas antes as correspondentes valvulas
 
-tanqueVacio(tanque2) => tanque2 < 600
 
-tanqueVacio(tanque) {
-    return tanque < 600;
-  }
-}
-
-tanqueLLeno(tanque) {
-    return tanque > 10800
-}
-
-tanqueGeneralVacio() {
-  return tanqueGeneral < 30000
-}
-
-tanqueGeneralLleno() {
-    return tanqueGeneral > 270000
-}
-
-
-------- PROCESO DE CARGA ---------
+## PROCESO DE CARGA 
 Esto garantiza que os depositos se enchan de un en un dende o 1 ata o 4 sempre que o tanque non se estea descargando e que o
 tanque xeral tenha a carga suficiente o tanque activo non podera ser cargado ao mesmo tempo que se esta a descargar
-
-
+```
 valvulaEntradaTanque1 = 0;
 valvulaEntradaTanque2 = 0;
 valvulaEntradaTanque3 = 0;
@@ -93,10 +74,12 @@ ELSE
   ELSE
     bombaEntrada = 0
     tanqueEnchendose = 0;
+```
     
- -------- PROCESO DESCARGA --------
+## PROCESO DESCARGA 
 Esto garantiza que os tanques sempre se vacien de un en un empezando dende o 4 ata chegar ao 1 ademais marca como activo o tanque que se esta descargando
 
+```
 valvulaSaidaTanque1 = 0;
 valvulaSaidaTanque2 = 0;
 valvulaSaidaTanque3 = 0;
@@ -123,9 +106,10 @@ ELSE IF NOT tanqueVacio(tanque1) AND valvulaEntradaTanque1 == 0
 ELSE 
   tanqueDescargandose = 0;
   bombaSaida = 0;
+```
 
-
-// CODIGO valvulaEntradaTanque1
+## Valvula de entrada do tanque 1
+```
 IF valvulaSaidaTanque1 == 0 THEN
   IF vaciados >= 2 THEN
     IF tanque1 < Lleno THEN
@@ -139,8 +123,10 @@ IF valvulaSaidaTanque1 == 0 THEN
 ELSE
   valvulaEntradaTanque1 = 0
 ENDIF;
+```
 
-// codigo valvulaEntradaTanque2
+## Valvula de entrada do tanque 2
+```
 IF valvulaSaidaTanque2 == 0 THEN
   IF vaciados >= 2 THEN
     IF tanque2 < Lleno THEN
@@ -152,5 +138,6 @@ IF valvulaSaidaTanque2 == 0 THEN
     ENDIF;
   ENDIF;
 ENDIF;
+```
 
-// CODIGO valvulaEntradaTanque3
+## Valvula de entrada do tanque 3
