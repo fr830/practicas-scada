@@ -1,21 +1,5 @@
-## Elementos
-valvulaEntradaTanque1
-valvulaSaidaTanque1
-valvulaEntradaTanque2
-valvulaSaidaTanque2 
-valvulaEntradaTanque3
-valvulaSaidaTanque3
-valvulaEntradaTanque4
-valvulaSaidaTanque4
-tanque1
-tanque2
-tanque3
-tanque4
-tanqueGeneral
-bombaEntrada
-bombaSaida
 
-# OBXETIVOS
+# Exercicio 5 das practicas de scada
   LENDA
   + OBXETIVO CUMPRIDO
   - OBXETIVO NON CUMPRIDO
@@ -109,15 +93,24 @@ ELSE
 ```
 
 ## Valvula de entrada do tanque 1
+### Requisitos
+- A valvula de saida debe estar cerrada
+- Debe haber polo menos 2 tanques vacios para comezar a encher
+- O tanque 1 non pode estar cheo para comezar a encher
+- Cando o tanque xeral estea vacio a valvula debese cerrar
+- Cando a valvula de saida se abra a de entrada debese cerrar
+- Cando o tanque 1 chege a sua carga maxima a valvula de entrada debe cerrarse
 ```
 IF valvulaSaidaTanque1 == 0 THEN
   IF vaciados >= 2 THEN
-    IF tanque1 < Lleno THEN
-      IF tanqueGeneral < Lleno AND tanqueGeneral > vacio THEN
+    IF tanque1 <= Lleno THEN
+      IF tanqueGeneral > vacio THEN
         valvulaEntradaTanque1 = 1;
       ELSE
         valvulaEntradaTanque1 = 0;
       ENDIF;
+    ELSE
+      valvulaEntradaTanque1 = 0;
     ENDIF;
   ENDIF;
 ELSE
@@ -126,6 +119,13 @@ ENDIF;
 ```
 
 ## Valvula de entrada do tanque 2
+### Requisitos
+- A valvula de saida debe estar cerrada
+- Debe haber polo menos 2 tanques vacios para comezar a encher
+- O tanque 2 non pode estar cheo para comezar a encher
+- Cando o tanque xeral estea vacio a valvula debese cerrar
+- Cando a valvula de saida se abra a de entrada debese cerrar
+- Cando o tanque 2 chege a sua carga maxima a valvula de entrada debe cerrarse
 ```
 IF valvulaSaidaTanque2 == 0 THEN
   IF vaciados >= 2 THEN
@@ -135,8 +135,12 @@ IF valvulaSaidaTanque2 == 0 THEN
       ELSE
         valvulaEntradaTanque2 = 0;
       ENDIF;
+    ELSE
+      valvulaEntradaTanque2 = 0;
     ENDIF;
   ENDIF;
+ELSE
+  valvulaEntradaTanque2 = 0;
 ENDIF;
 ```
 
