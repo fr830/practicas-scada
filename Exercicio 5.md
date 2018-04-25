@@ -87,7 +87,7 @@ ELSE
   tanqueDescargandose = 0;
   bombaSaida = 0;
 ```
-
+# Valvulas de entrada
 ## Valvula de entrada do tanque 1
 ### Requisitos
 - A valvula de saida debe estar cerrada
@@ -173,12 +173,40 @@ ENDIF;
 ### Requisitos
 - A valvula de saida debe estar cerrada
 - Debe haber polo menos 2 tanques vacios para comezar a encher
-- O tanque 3 non pode estar cheo para comezar a encher
+- O tanque 4 non pode estar cheo para comezar a encher
 - Cando o tanque xeral estea vacio a valvula debese cerrar
 - Cando a valvula de saida se abra a de entrada debese cerrar
-- Cando o tanque 3 chege a sua carga maxima a valvula de entrada debe cerrarse
+- Cando o tanque 4 chege a sua carga maxima a valvula de entrada debe cerrarse
 ```
 IF valvulaSaidaTanque4 == 0 THEN
+  IF vaciados >= 4 THEN
+    IF tanque4 < Lleno THEN
+      IF tanqueGeneral < Lleno AND tanqueGeneral > vacio THEN
+        valvulaEntradaTanque4 = 1;
+      ELSE
+        valvulaEntradaTanque4 = 0;
+      ENDIF;
+    ELSE
+      valvulaEntradaTanque4 = 0;
+    ENDIF;
+  ENDIF;
+ELSE
+  valvulaEntradaTanque4 = 0;
+ENDIF;
+```
+
+# Valvulas de saida
+## Valvula de Saida do tanque 1
+### Requisitos
+- A valvula de entrada debe estar cerrada
+- Non pode haber ningunha outra valvula de saida aberta
+- O tanque 1 non pode estar vacio
+- Cando a valvula de entrada se abra a de saida debese cerrar
+- Cando o tanque 1 chege a sua carga minima a valvula de saida debe cerrarse
+
+Codigo en desenvolvemento
+```
+IF valvulaEntradaTanque1 == 0 THEN
   IF vaciados >= 4 THEN
     IF tanque4 < Lleno THEN
       IF tanqueGeneral < Lleno AND tanqueGeneral > vacio THEN
