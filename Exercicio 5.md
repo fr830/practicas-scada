@@ -198,27 +198,22 @@ ENDIF;
 # Valvulas de saida
 ## Valvula de Saida do tanque 1
 ### Requisitos
+- O tanque 1 non pode estar vacio no caso de que o este pecharase a valvula de saida
 - A valvula de entrada debe estar cerrada
 - Non pode haber ningunha outra valvula de saida aberta
-- O tanque 1 non pode estar vacio
 - Cando a valvula de entrada se abra a de saida debese cerrar
-- Cando o tanque 1 chege a sua carga minima a valvula de saida debe cerrarse
+- Que caso se debe dar para que a valvula de saida se abra??
 
-Codigo en desenvolvemento
 ```
-IF valvulaEntradaTanque1 == 0 THEN
-  IF vaciados >= 4 THEN
-    IF tanque4 < Lleno THEN
-      IF tanqueGeneral < Lleno AND tanqueGeneral > vacio THEN
-        valvulaEntradaTanque4 = 1;
-      ELSE
-        valvulaEntradaTanque4 = 0;
-      ENDIF;
-    ELSE
-      valvulaEntradaTanque4 = 0;
-    ENDIF;
-  ENDIF;
+
+IF tanque1 > vacio THEN
+  IF valvulaEntradaTanque1 == 0 THEN
+    IF valvulaSaidaTanque2 + valvulaSaidaTanque3 + valvulaSaidaTanque4 == 0 THEN
+      ENDIF
+  ELSE
+    valvulaSaidaTanque1 = 0;
+  ENDIF; 
 ELSE
-  valvulaEntradaTanque4 = 0;
-ENDIF;
+  valvulaSaidaTanque1 = 0;
+ENDIF; 
 ```
