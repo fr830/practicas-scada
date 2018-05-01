@@ -140,8 +140,6 @@ ELSE
 ENDIF;
 ```
 
-
-
 ## Valvula de entrada do tanque 3
 ### Requisitos
 - A valvula de saida debe estar cerrada
@@ -167,7 +165,6 @@ ELSE
   valvulaEntradaTanque3 = 0;
 ENDIF;
 ```
-
 
 ## Valvula de entrada do tanque 4
 ### Requisitos
@@ -212,8 +209,8 @@ IF tanque1 > vacio THEN
       ENDIF
   ELSE
     valvulaSaidaTanque1 = 0;
-  ENDIF; 
+  ENDIF;
 ELSE
   valvulaSaidaTanque1 = 0;
-ENDIF; 
+ENDIF;
 ```
