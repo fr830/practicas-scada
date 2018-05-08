@@ -1,0 +1,147 @@
+
+{CONDICION DE QUE SOLO SE PUEDE BOMBEAR DE UN TANQUE}
+IF ev1b==1 THEN
+ev2b=0;
+ev3b=0;
+ev4b=0;
+
+ENDIF;
+
+IF ev2b==1 THEN
+ev1b=0;
+ev3b=0;
+ev4b=0;
+
+ENDIF;
+
+IF ev3b==1  THEN
+    ev2b=0;
+ev1b=0;
+ev4b=0;
+
+ENDIF;
+
+IF ev4b==1 THEN
+    ev2b=0;
+ev3b=0;
+ev1b=0;
+ENDIF;
+
+
+
+{TRABAJO EN AUTOMATICO}
+
+
+  
+IF nivelgeneral <=30000 THEN
+botonentrada=1;
+
+ENDIF;
+
+{CUMPLIMIENTO CONDICION 7}
+
+IF nivel1 <= 600 AND nivel2 >= 11400 THEN
+ev2b=1;
+
+ENDIF;
+
+IF nivel1 <= 600 AND nivel3 >= 11400 THEN
+ev3b=1;
+
+ENDIF;
+
+IF nivel1  <= 600 AND nivel4 >= 11400 THEN
+ev4b=1;
+
+ENDIF;
+
+IF nivel2  <= 600 AND nivel1  >= 11400 THEN
+ev1b=1;
+
+ENDIF;
+
+IF nivel2  <= 600 AND nivel3  >= 11400 THEN
+ev3b=1;
+
+ENDIF;
+
+IF nivel2  <= 600 AND nivel4  >= 11400 THEN
+ev4b=1;
+
+ENDIF;
+
+IF nivel3  <= 600 AND nivel1  >= 11400 THEN
+ev1b=1;
+
+ENDIF;
+
+IF nivel3  <= 600 AND nivel2  >= 11400 THEN
+ev2b=1;
+
+ENDIF;
+
+IF nivel3  <= 600 AND nivel4  >= 11400 THEN
+ev4b=1;
+
+ENDIF;
+
+IF nivel4  <= 600 AND nivel1  >= 11400 THEN
+ev1b=1;
+
+ENDIF;
+
+IF nivel4  <= 600 AND nivel2  >= 11400 THEN
+ev2b=1;
+
+ENDIF;
+
+IF nivel4 <= 600 AND nivel3  >= 11400 THEN
+ev3b=1;
+
+ENDIF;
+
+{CUMPLIMIENTO CONDICION 8}
+
+IF nivel1<=600 AND nivel2<=600 THEN
+
+ev1a=1;
+
+ev2a=1;
+ENDIF;
+
+IF nivel1 <=600 AND nivel3 <=600 THEN
+
+ev1a=1;
+
+ev3a=1;
+ENDIF;
+
+IF nivel1<=600 AND nivel4 <=600 THEN
+
+ev1a=1;
+
+ev4a=1;
+ENDIF;
+
+IF nivel2 <=600 AND nivel3 <=600 THEN
+
+ev2a=1;
+
+ev3a=1;
+ENDIF;
+
+IF nivel2 <=600 AND nivel4<=600 THEN
+
+ev2a=1;
+
+ev4a=1;
+ENDIF;
+
+IF nivel3 <=600 AND nivel4 <=600 THEN
+
+ev3a=1;
+
+ev4a=1;
+ENDIF;
+
+{TODO ESTO PARA TRABAJO AUTOMATICO}
