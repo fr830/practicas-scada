@@ -1,0 +1,34 @@
+IF ev3b==1  AND tanque3lleno==1 THEN 
+     tanqueactivo=1;
+ENDIF;
+
+IF ev3b==0  THEN
+    tanqueactivo=0;
+ENDIF;
+
+IF ev3b==1  THEN
+    ev1b=0;
+    ev2b=0;
+    ev3b=0;
+    bomba2=1;
+ENDIF;
+
+IF ev1b+ev2b+ev4b == 0 THEN
+    IF nivel3 >= 0.15 THEN
+        ev3b=1;
+    ELSE
+        ev3b=0;
+    ENDIF;
+ENDIF;
+
+
+IF nivel1==0.15  AND nivel3==2.85  THEN
+        ev3b=1;
+ELSE 
+    IF nivel2 ==0.15 AND nivel3 == 2.85 THEN
+            ev3b=1;
+    ENDIF;
+    IF nivel4==0.15  AND nivel3==2.85  THEN
+            ev3b=1;
+    ENDIF;
+ENDIF;
