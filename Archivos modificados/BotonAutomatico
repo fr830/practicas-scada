@@ -1,0 +1,5 @@
+IF Automatico == 1 THEN
+    Automatico = 0;
+ELSE
+    Automatico = 1;
+ENDIF;

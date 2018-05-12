@@ -1,0 +1,15 @@
+{Para que a bomba funcione ten que haber ao menos un elemento acceso}
+
+IF Automatico == 1 THEN
+    IF bomba2==0 THEN 
+        ev1b=0;
+        ev2b=0;
+        ev3b=0;
+        ev4b=0;
+    ENDIF;
+    IF ev1b+ev2b+ev3b+ev4b==0 THEN 
+        bomba2=0;
+    ELSE 
+        bomba2=1;
+    ENDIF;
+ENDIF;
