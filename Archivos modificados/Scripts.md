@@ -144,15 +144,6 @@ ENDIF;
 
 ```
 
-## Boton automatico ao pulsar sobre el
-```
-IF Automatico == 1 THEN
-    Automatico = 0;
-ELSE
-    Automatico = 1;
-ENDIF;
-```
-
 ## Script bomba1
 ```
 {Para que a bomba funcione ten que haber ao menos un elemento acceso}
@@ -419,6 +410,68 @@ IF Automatico == 1 THEN
 
     IF nivel2==3 THEN 
         ev2a=0;
+    ENDIF;
+ENDIF; 
+```
+
+## Script nivel 3
+
+```
+IF Automatico == 1 THEN
+    IF nivel3>=0.15 THEN 
+        tanque3vacio=0;
+    ENDIF;
+
+    IF nivel3>=2.85 THEN 
+        tanque3lleno=1;
+    ENDIF;
+
+    IF nivel3<=0.15 THEN 
+        tanque3vacio=1;
+        tanque3lleno=0;
+        ev3b=0;
+   
+    ENDIF;
+
+    IF tanque1vacio+tanque2vacio+tanque3vacio+tanque4vacio >=3 THEN
+        Alarmavacio=1;
+    ELSE
+        Alarmavacio=0;
+    ENDIF;
+
+    IF nivel1==3 THEN 
+        ev3a=0;
+    ENDIF;
+ENDIF;
+```
+
+## Script nivel 4
+
+```
+IF Automatico == 1 THEN
+    IF nivel4>=0.15 THEN 
+        tanque4vacio=0;
+    ENDIF;
+
+    IF nivel4>=2.85 THEN 
+        tanque4lleno=1;
+    ENDIF;
+
+    IF nivel4<=0.15 THEN 
+        tanque4vacio=1;
+        tanque4lleno=0;
+        ev4b=0;
+
+    ENDIF;
+
+    IF tanque1vacio+tanque2vacio+tanque3vacio+tanque4vacio >=3 THEN
+        Alarmavacio=1;
+    ELSE
+        Alarmavacio=0;
+    ENDIF;
+
+    IF nivel4==3 THEN 
+        ev4a=0;
     ENDIF;
 ENDIF; 
 ```
